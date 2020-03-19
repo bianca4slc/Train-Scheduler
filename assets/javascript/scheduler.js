@@ -27,7 +27,6 @@ $("#add-train-button").on("click", function(event) {
   var trainTime = $("#first-train-input")
     .val()
     .trim();
-
   var trainFreq = $("#frequency-input")
     .val()
     .trim();
@@ -112,9 +111,9 @@ database.ref().on("child_added", function(childSnapshot) {
   var newRow = $("<tr>").append(
     $("<td>").text(trainName),
     $("<td>").text(trainDest),
-    $("<td>").text(trainTime.moment.unix(trainTime).format("HH:mm")),
+    $("<td>").text(trainTime),
     $("<td>").text(trainFreq),
-    $("<td>").text(newTrain),
+    $("<td>").text(moment(newTrain).format("hh:mm")),
     $("<td>").text(minAway)
   );
 
